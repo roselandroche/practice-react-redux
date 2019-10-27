@@ -14,10 +14,11 @@ export const reducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TO_DO:
             return {
-                toDoList: [ ...state, {
-                    name: action.payload.name,
-                    ...state
-                }]
+                ...state,
+                toDoList: [
+                    ...state.toDoList,
+                    action.payload
+                ]
             }
         case TOGGLE_TO_DO: 
             const updatedTask = state.toDoList.map(item => {
@@ -36,11 +37,12 @@ export const reducer = (state = initialState, action) => {
                 toDoList: updatedTask
             }
         case CLEAR_TO_DO:
+            const clearedTask = state.toDoList.filter(item => {
+                return !item.completed
+            })
             return {
-                toDoList:
-                    state.toDoList.filter(item => {
-                        return !item.completed
-                    })
+                ...state,
+                toDoList: clearedTask
             }
         default:
             return state;

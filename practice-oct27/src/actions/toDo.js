@@ -19,9 +19,8 @@ export const toggleToDo = (id) => {
 
 export const CLEAR_TO_DO = 'CLEAR_TO_DO';
 
-export const clearToDo = (toDo) => {
+export const clearToDo = () => {
     return {
-        type: CLEAR_TO_DO,
-        payload: toDo
+        type: CLEAR_TO_DO
     }
 }
