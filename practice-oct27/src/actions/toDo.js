@@ -7,11 +7,11 @@ export const addToDo = (toDo) => {
     }
 }
 
-export const COMPLETE_TO_DO = 'COMPLETE_TO_DO';
+export const TOGGLE_TO_DO = 'TOGGLE_TO_DO';
 
-export const completeToDo = (toDo) => {
+export const toggleToDo = (toDo) => {
     return {
-        type: COMPLETE_TO_DO,
+        type: TOGGLE_TO_DO,
         payload: toDo
     }
 }
