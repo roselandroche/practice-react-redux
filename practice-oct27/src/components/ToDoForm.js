@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { reducer, initialState } from '../reducers/toDo';
+import { toggleToDo, addToDo, clearToDo } from '../actions/toDo';
+import { connect } from 'react-redux';
 
-const TodoForm = () =>{
+const TodoForm = (props) =>{
     const [newTodoItem, setNewTodoItem] = useState('');
 
 
@@ -13,10 +15,10 @@ const TodoForm = () =>{
         
         <div className='todo-form'>
             <div>
-                {state.toDoList.map(item => {
+                {props.toDoList.map(item => {
                     return <div className='todo-item'>
-                        <p>item.name</p>
-                        <button onClick={}>Completed</button>
+                        <p>item.props.name</p>
+                        <button onClick={toggleToDo}>Completed</button>
                     </div>
                 })}
             </div>
@@ -24,6 +26,8 @@ const TodoForm = () =>{
                 className='todo-input'
                 type='text'
                 name='newTodoItem'
+                value={newTodoItem}
+                onChange={handleChange}
             />
             <button >
                 Add New Todo
@@ -35,4 +39,19 @@ const TodoForm = () =>{
     )
 }
 
-export default TodoForm;
+function mapStateToProps(state) {
+    return {
+        name: state.toDoList.name
+    }
+}
+
+const mapDispatchToProps = {
+    addToDo,
+    toggleToDo,
+    clearToDo
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TodoForm);

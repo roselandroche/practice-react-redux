@@ -34,5 +34,7 @@ export const reducer = (state = initialState, action) => {
                         return !item.completed
                     })
             }
+        default:
+            return state;
     }
 }
