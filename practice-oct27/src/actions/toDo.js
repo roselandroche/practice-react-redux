@@ -18,7 +18,7 @@ export const completeToDo = (toDo) => {
 
 export const CLEAR_TO_DO = 'CLEAR_TO_DO';
 
-export const CLEAR_TO_DO = (toDo) => {
+export const clearToDo = (toDo) => {
     return {
         type: CLEAR_TO_DO,
         payload: toDo
