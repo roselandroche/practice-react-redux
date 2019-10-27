@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Simple from './components/DumbComponent';
+// import Simple from './components/DumbComponent';
 import ToDoForm from './components/ToDoForm';
 
 function App() {
   return (
     <div className="App">
       <div>Practice</div>
-      <Simple />
+      {/* <Simple /> */}
       <ToDoForm />
     </div>
   );
