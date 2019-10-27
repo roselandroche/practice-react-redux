@@ -10,15 +10,16 @@ const TodoForm = (props) =>{
     const handleChange = event => {
         setNewTodoItem(event.target.value)
     };
-
+    console.log(props)
     return(
         
         <div className='todo-form'>
             <div>
-                {props.toDoList.map(item => {
+                {props.toDo.toDoList.map(item => {
                     return <div className='todo-item'>
-                        <p>item.props.name</p>
-                        <button onClick={toggleToDo}>Completed</button>
+                        <p>{item.name}</p>
+                        <button onClick={() => toggleToDo(item.id)}>Completed</button>
+                        {/* Target the specific item by passing it as a param to the actual function, which is inside a callback */}
                     </div>
                 })}
             </div>
@@ -41,7 +42,8 @@ const TodoForm = (props) =>{
 
 function mapStateToProps(state) {
     return {
-        name: state.toDoList.name
+        name: state.toDoList.name,
+        toDo: state.toDoList
     }
 }
 

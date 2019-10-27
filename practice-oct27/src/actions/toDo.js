@@ -9,10 +9,11 @@ export const addToDo = (toDo) => {
 
 export const TOGGLE_TO_DO = 'TOGGLE_TO_DO';
 
-export const toggleToDo = (toDo) => {
+export const toggleToDo = (id) => {
+    console.log(id)
     return {
         type: TOGGLE_TO_DO,
-        payload: toDo
+        payload: id
     }
 }
 

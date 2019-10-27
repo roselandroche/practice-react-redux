@@ -20,12 +20,20 @@ export const reducer = (state = initialState, action) => {
                 }]
             }
         case TOGGLE_TO_DO: 
+            const updatedTask = state.toDoList.map(item => {
+                if(item.id === action.payload) {
+                    return {
+                        ...item,
+                        completed: !item.completed
+                    }
+                } else {
+                    return item
+                }
+            })
+            console.log('reducer called')
             return {
                 ...state,
-                toDoList: {
-                    completed: !action.payload.completed,
-                    ...state
-                }
+                toDoList: updatedTask
             }
         case CLEAR_TO_DO:
             return {
